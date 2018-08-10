@@ -213,9 +213,6 @@ select { height: calc(2.25rem + 2px); display: block; width: 100%; padding: .375
 
 .wp-bs-4-jumbotron { margin-bottom: 0; }
 
-.wp-bs-4-jumbotron .jumbotron-heading { font-weight: 600; }
-
-.wp-bs-4-jumbotron .container { max-width: 40rem; }
 
 .comments-area { clear: both; -ms-word-wrap: break-word; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word; }
 
@@ -297,7 +294,7 @@ select { height: calc(2.25rem + 2px); display: block; width: 100%; padding: .375
 
 .wb-hide-mobile-sidebar .wp-bp-sidebar-width { display: none; }
 
-.navbar-toggler { background-color: #343a40; }
+.navbar-toggler { background-color: transparent; }
 
 .site-header { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
 
@@ -311,21 +308,9 @@ body.custom-background .wp-bp-main-content .col-md-8 { background: #f8f9fa; padd
 
 .wb-bp-front-page .wp-bs-4-jumbotron { padding: 0; background-size: cover; background-position: center; background-color: #343a40; border-radius: 0; }
 
-.wb-bp-front-page .wp-bs-4-jumbotron .wp-bp-jumbo-overlay {  }
-
-.wb-bp-front-page .wp-bs-4-jumbotron .wp-bp-jumbo-overlay .lead { opacity: .75; }
-
-.wb-bp-front-page .wp-bs-4-jumbotron .wp-bp-jumbo-overlay .jumbotron-heading { }
-
 .wb-bp-front-page .wp-bp-services-section { padding: 4rem 0; }
 
-.wb-bp-front-page .wp-bp-main-content { padding: 4rem 0; }
-
-.wb-bp-front-page .wp-bp-main-content p { font-size: 1.25rem; font-weight: 300; }
-
-.wb-bp-front-page .wp-bp-main-content blockquote { font-size: 1.35rem; }
-
-.wb-bp-front-page .wp-bp-main-content blockquote p { font-size: 1.35rem; }
+.wb-bp-front-page .wp-bp-main-content blockquote {  }
 
 .wb-bp-front-page .wp-bp-main-content .post-thumbnail { margin-bottom: 1rem; margin-top: 0.5rem; }
 

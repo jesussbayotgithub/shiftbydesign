@@ -1,17 +1,34 @@
-@import "variables"; @import "fonts";  @import "bootstrap";
+@import "variables"; @import "unit"; @import "fonts";  @import "bootstrap";
 .block{
   position: relative;
   float: left;
+  width: 100%;
 }
 //Header
 h1{
   @extend .font_CircularStd_Medium;
+  display: block;
   &.jumbotron-heading{
     @extend .font_CircularStd_Medium;
     text-align: left;
     font-weight: 500;
-    font-size: 78px;
-    line-height: 85px;
+    font-size: rem-calc(75);
+    line-height: rem-calc(85);
+    word-wrap: break-word;
+    display: block;
+
+    @media all and (max-width: 580px) {
+      font-size: rem-calc(55);
+      line-height: rem-calc(65);
+    }
+    @media all and (max-width: 480px) {
+      font-size: rem-calc(45);
+      line-height: rem-calc(55);
+    }
+    @media all and (max-width: 360px) {
+      font-size: rem-calc(40);
+      line-height: rem-calc(50);
+    }
   }
 }
 html{
@@ -21,9 +38,16 @@ html{
     .navbar{ background-color: $color_blue1; }
   }
 }
+//Bootstrap
+.container-fluid {
+  @media all and (max-width: 767px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 .navbar-toggler { background-color: transparent; }
 .site-header { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
-
 
 .wb-bp-front-page{
   padding: 0;
@@ -31,14 +55,184 @@ html{
   background-position: center;
   border-radius: 0;
 
-  .wp-bs-4-jumbotron{
-    .wp-bp-jumbo-overlay{
-      padding: 15rem 2rem;
-      max-width: 45rem;
-      .lead { opacity: .75; }
+  .wp-bp-main-content {
+    padding: 150px 0;
+    color: $color_blue1;
+    background-color: #FFF;
+    @media all and (max-width: 767px) {
+      padding: 80px 0;
+    }
+    h2{
+      color: inherit;
+      font-size: 55px;
+      line-height: 62px;
+      @extend .font_CircularStd_Medium;
+      margin-bottom: 60px;
+      @media all and (max-width: 767px) {
+        font-size: 35px;
+        line-height: 42px;
+        margin-bottom: 30px;
+      }
+    }
+    p{
+      color: inherit;
+      font-size: 30px;
+      line-height: 36px;
+      @extend .font_CircularStd_Book;
+      @media all and (max-width: 767px) {
+        font-size: 18px;
+        line-height: 28px;
+      }
+
     }
   }
 
+  .wp-bs-4-jumbotron{
+
+    .jumbotron-heading { font-weight: 600; }
+
+    .wp-bp-jumbo-overlay{
+      @media all and (min-width: 561px) {
+        padding: 15rem 2rem;
+      }
+      @media all and (max-width: 560px) {
+        padding: 10rem 1rem;
+      }
+      @media all and (max-width: 480px) {
+        padding: 8rem 0;
+      }
+
+      .lead { opacity: .75; }
+      .container, .container-fluid{
+        .hp-title{
+          @media all and (min-width: 767px) {
+            max-width: 45rem;
+          }
+          @media all and (max-width: 767px) {
+            padding: 0;
+          }
+
+        }
+      }
+    }
+
+  }
+
 }
+
+//Header
+.hdr-logo{
+  position: relative;
+  float: none;
+  margin: 0 auto;
+  .logo{  height: rem-calc(30);  }
+
+}
+.hdr-container{
+  @extend .block;
+  width: 100%;
+  text-align: center;
+}
+.navbar-toggler{
+  display: none;
+}
+
+.whatdowedo{
+  @extend .block;
+  padding: 80px 0 0 0;
+  background-color: $color_blue1;
+  color: #FFF;
+  *{ color: #FFF;}
+  h2{
+    @extend .block;
+    text-align: center;
+    font-size: 38px;
+    line-height: 42px;
+    margin-bottom: 80px;
+    @extend .font_CircularStd_Book;
+  }
+  h3{
+    @extend .font_CircularStd_Bold;
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+
+  .wwdo-tile{
+    position: relative;
+    float: left;
+    margin-bottom: 80px;
+    img{  margin-bottom: 35px; height: 80px;  }
+    @media all and (min-width: 768px) {
+      width: 95%;
+    }
+  }
+
+
+}
+
+.brands{
+
+  @extend .block;
+  background-color: #FFF;
+  color: $color_blue1;
+  @media all and (min-width: 768px) {
+    padding: 150px 0;
+  }
+  @media all and (max-width: 767px) {
+    padding: 80px 0;
+  }
+
+  h2{
+    color: inherit;
+    @extend .font_CircularStd_Bold;
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 80px;
+    @media all and (max-width: 767px) {
+      margin-bottom: 60px;
+    }
+  }
+
+  .brand-wrapper{
+    position: relative;
+    float: left;
+    width: 20%;
+    min-height: 100px;
+    padding: 0;
+    margin-bottom: 40px;
+
+    .brand-block{
+      position: absolute;
+      float: left;
+      width: 100%;
+      bottom: 0;
+
+      text-align: center;
+      img{
+        position: relative;
+        float: none;
+        margin: 0 auto;
+      }
+    }
+
+  }
+
+}
+
+.whoweare{
+  @extend .block;
+  padding: 80px 0;
+  background-color: #B0F2F7;
+  h2{
+    text-align: center;
+    @extend .block;
+    color: #012326;
+    font-size: 38px;
+    line-height: 42px;
+    margin-bottom: 80px;
+  }
+}
+
 
 

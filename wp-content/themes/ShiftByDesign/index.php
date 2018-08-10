@@ -22,6 +22,7 @@ $default_sidebar_position = get_theme_mod( 'default_sidebar_position', 'right' )
 		<section class="jumbotron bg-white text-center wp-bs-4-jumbotron border-bottom">
 			<div class="container">
                 <div class="col hp-title">
+                    000
                     <h1 class="jumbotron-heading"><?php echo wp_kses_post( get_theme_mod( 'blog_cover_title' ) ); ?></h1>
                     <p class="lead text-muted"><?php echo wp_kses_post( get_theme_mod( 'blog_cover_lead' ) ); ?></p>
                     <?php if( get_theme_mod( 'blog_cover_btn_text' ) ) : ?><a href="<?php echo esc_url( get_theme_mod( 'blog_cover_btn_link' ) ); ?>" class="btn btn-primary"><?php echo esc_html( get_theme_mod( 'blog_cover_btn_text' ) ); ?></a><?php endif; ?>
