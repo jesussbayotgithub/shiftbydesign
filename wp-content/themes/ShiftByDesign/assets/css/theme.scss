@@ -1,0 +1,44 @@
+@import "variables"; @import "fonts";  @import "bootstrap";
+.block{
+  position: relative;
+  float: left;
+}
+//Header
+h1{
+  @extend .font_CircularStd_Medium;
+  &.jumbotron-heading{
+    @extend .font_CircularStd_Medium;
+    text-align: left;
+    font-weight: 500;
+    font-size: 78px;
+    line-height: 85px;
+  }
+}
+html{
+  body{
+    @extend .font_CircularStd_Book;
+    p{ @extend .font_CircularStd_Book; }
+    .navbar{ background-color: $color_blue1; }
+  }
+}
+.navbar-toggler { background-color: transparent; }
+.site-header { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+
+
+.wb-bp-front-page{
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+
+  .wp-bs-4-jumbotron{
+    .wp-bp-jumbo-overlay{
+      padding: 15rem 2rem;
+      max-width: 45rem;
+      .lead { opacity: .75; }
+    }
+  }
+
+}
+
+
