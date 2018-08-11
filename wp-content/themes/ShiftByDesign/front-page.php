@@ -30,7 +30,7 @@ else {
                     <div class="col-md-12" data-aos="fade-down" data-aos-easing="linear">
                         <h2>What we do</h2>
                     </div>
-                    <div class="col-md-12 col-lg-10">
+                    <div class="col-md-12 col-lg-11">
                         <div class="row">
 
                             <div class="col-md-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
