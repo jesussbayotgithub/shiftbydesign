@@ -7,12 +7,26 @@
  * @package WP_Bootstrap_4
  */
 
-
 define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_PATH', get_template_directory() );
 define( 'THEME_IMAGE_URL', THEME_URI . '/images' );
 define( 'THEME_JS', THEME_URI . '/js' );
 define( 'THEME_CSS', THEME_URI . '/css' );
+
+if(function_exists('acf_add_options_page')) {
+
+    acf_add_options_page();
+    acf_add_options_sub_page('Global');
+    //Global
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Global',
+        'menu_title'    => 'Global',
+        'capability'    => 'edit_posts',
+        'position'      => false,
+        'icon_url'      => false,
+    ));
+}
+
 
 if ( ! function_exists( 'wp_bootstrap_4_setup' ) ) :
 	function wp_bootstrap_4_setup() {
@@ -49,21 +63,21 @@ if ( ! function_exists( 'wp_bootstrap_4_setup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'wp_bootstrap_4_custom_background_args', array(
-			'default-color' => 'f8f9fa',
-			'default-image' => '',
-		) ) );
+		//add_theme_support( 'custom-background', apply_filters( 'wp_bootstrap_4_custom_background_args', array(
+		//	'default-color' => 'f8f9fa',
+		//	'default-image' => '',
+		//) ) );
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		// Add support for core custom logo.
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
+		//add_theme_support( 'custom-logo', array(
+		//	'height'      => 250,
+		//	'width'       => 250,
+		//	'flex-width'  => true,
+		//	'flex-height' => true,
+		//) );
 	}
 endif;
 add_action( 'after_setup_theme', 'wp_bootstrap_4_setup' );
@@ -155,11 +169,12 @@ function wp_bootstrap_4_scripts() {
     wp_enqueue_style( 'data-aos', get_template_directory_uri() . '/assets/css/aos.css', array(), 'v4.0.0', 'all' );
 
 	//wp_enqueue_style( 'bootstrap-4', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), 'v4.0.0', 'all' );
-	//wp_enqueue_style( 'wp-bootstrap-4-style', get_stylesheet_uri(), array(), '1.0.2', 'all' );
+	wp_enqueue_style( 'wp-bootstrap-4-style', get_stylesheet_uri(), array(), '1.0.2', 'all' );
 
     wp_enqueue_style( 'theme-css', get_template_directory_uri() . '/assets/css/theme.css', array(), 'v4.0.0', 'all' );
     wp_enqueue_script( 'bootstrap-4-js', get_template_directory_uri() . '/assets/js/bootstrap.js', array('jquery'), 'v4.0.0', true );
     wp_enqueue_script( 'aos-js', get_template_directory_uri() . '/assets/js/aos.js', array('jquery'), 'v4.0.0', true );
+    wp_enqueue_script( 'nicescroll-js', get_template_directory_uri() . '/assets/js/jquery.nicescroll.min.js', array('jquery'), 'v4.0.0', true );
 
 
     wp_enqueue_script( 'theme-js', get_template_directory_uri() . '/assets/js/theme.js', array('jquery'), 'v4.0.0', true );

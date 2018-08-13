@@ -7,14 +7,22 @@ WP_Bootstrap_4_Kirki::add_section( 'wp_bp_frontpage', array(
     'theme_supports' => '',
 ) );
 
+WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
+    'settings' => 'front_cover_lead',
+    'label'    => esc_html__( 'Cover Lead', 'wp-bootstrap-4' ),
+    'section'  => 'wp_bp_frontpage',
+    'type'     => 'text',
+    'default'  => get_bloginfo( 'description' ),
+) );
+
+
+/*
 if( class_exists( 'Kirki' ) ) {
     function wp_bootstrap_4_move_header_bg_image( $wp_customize ) {
         $wp_customize->get_control( 'header_image' )->section = 'wp_bp_frontpage';
     }
     add_action( 'customize_register', 'wp_bootstrap_4_move_header_bg_image' );
 }
-
-
 WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
 	'settings' => 'front_cover_title',
 	'label'    => esc_html__( 'Cover Title', 'wp-bootstrap-4' ),
@@ -22,6 +30,7 @@ WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
 	'type'     => 'text',
     'default'  => get_bloginfo( 'name' ),
 ) );
+
 
 WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
 	'settings' => 'front_cover_lead',
@@ -31,6 +40,7 @@ WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
     'default'  => get_bloginfo( 'description' ),
 ) );
 
+
 WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
 	'settings' => 'front_cover_btn_text',
 	'label'    => esc_html__( 'Cover Button Text', 'wp-bootstrap-4' ),
@@ -38,6 +48,7 @@ WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
 	'type'     => 'text',
     'default'  => '',
 ) );
+
 
 WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
 	'settings' => 'front_cover_btn_link',
@@ -68,7 +79,7 @@ WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
 	'section'  => 'wp_bp_frontpage',
 	'type'     => 'dropdown-pages',
 ) );
-
+*/
 
 WP_Bootstrap_4_Kirki::add_field( 'wp_bootstrap_4_theme', array(
 	'settings' => 'show_main_content',

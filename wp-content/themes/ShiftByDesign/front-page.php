@@ -14,9 +14,9 @@ else {
         <section class="wp-bp-main-content">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-10" data-aos="fade-up" data-aos-easing="linear">
+                    <div class="col-md-10 col-lg-8" data-aos="fade-up" data-aos-easing="linear">
                         <?php while ( have_posts() ) : the_post(); ?>
-                            <h2>To diffentiate themeselves and stay competitive, business today are adopting the design thinking process as a capacity to put people at the heart of what they do.</h2>
+                            <h2><?=the_field('sub_header');?></h2>
                             <div class="block" ><?php the_content(); ?></div>
                         <?php endwhile; ?>
                     </div>
@@ -30,100 +30,23 @@ else {
                     <div class="col-md-12" data-aos="fade-down" data-aos-easing="linear">
                         <h2>What we do</h2>
                     </div>
-                    <div class="col-md-12 col-lg-11">
+                    <div class="col-md-12 col-lg-10">
                         <div class="row">
-
-                            <div class="col-md-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
-                                <div class="wwdo-tile">
-                                    <img src="<?=THEME_IMAGE_URL?>/icon_custx.svg">
-                                    <h3>Customer Experience and Service Design</h3>
-                                    <p>
-                                        Designing world class customer
-                                        experiences and service delivery
-                                        to create desirble human
-                                        centered journeys and unlock
-                                        what customer’s value most.
-                                    </p>
+                            <?php if( have_rows('what_we_do_tile') ): ?>
+                                <?php while ( have_rows('what_we_do_tile') ) : the_row();?>
+                                <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
+                                    <div class="wwdo-tile">
+                                        <div class="wwedo-icon">
+                                            <?php
+                                            $img_id = get_sub_field('wwdo_image');
+                                            echo wp_get_attachment_image(  $img_id , "Full" );  ?>
+                                        </div>
+                                        <h3><?=the_sub_field('wwdo_title'); ?></h3>
+                                        <p><?=the_sub_field('wwdo_description'); ?></p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
-                                <div class="wwdo-tile">
-                                    <img src="<?=THEME_IMAGE_URL?>/icon_dtw.svg">
-                                    <h3>Design Thinking Workshops</h3>
-                                    <p>
-                                        A practical hands on introduction
-                                        to Design Thinking customized
-                                        to inform and build your teams.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
-                                <div class="wwdo-tile">
-                                    <img src="<?=THEME_IMAGE_URL?>/icon_dspf.svg">
-                                    <h3>Design Sprint Facilitation</h3>
-                                    <p>
-                                        Ideating and prototyping
-                                        business challenges to create
-                                        new opportunities through
-                                        high energy design workshops.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
-                                <div class="wwdo-tile">
-                                    <img src="<?=THEME_IMAGE_URL?>/icon_dspf.svg">
-                                    <h3>Brand Strategy and Design</h3>
-                                    <p>
-                                        Creating strong brands with
-                                        meaning to connect customers
-                                        to compelling brand stories.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
-                                <div class="wwdo-tile">
-                                    <img src="<?=THEME_IMAGE_URL?>/icon_brandStrat.svg">
-                                    <h3>Customer Research</h3>
-                                    <p>
-                                        Putting your customers at the
-                                        heart of the design project to
-                                        gain deep insights and discover
-                                        unmet needs.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
-                                <div class="wwdo-tile">
-                                    <img src="<?=THEME_IMAGE_URL?>/icon_busdc.svg">
-                                    <h3>Business Design & Coaching</h3>
-                                    <p>
-                                        Helping companies be more
-                                        effective based on real world
-                                        experiences and proven design
-                                        thinking methods.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6 col-xs-12 wwdo-list" data-aos="flip-left">
-                                <div class="wwdo-tile">
-                                    <img src="<?=THEME_IMAGE_URL?>/icon_uxd.svg">
-                                    <h3>UX Design</h3>
-                                    <p>
-                                        Digital and physical usability
-                                        and function to design
-                                        meaningful interactions with
-                                        products and services.
-                                    </p>
-                                </div>
-                            </div>
-
-
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                   </div>
                 </div>
@@ -134,128 +57,72 @@ else {
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-8" data-aos="fade-down" data-aos-easing="linear">
-                        <h2>
-                            With 25+ years working in the creative industry, we’ve had the opportunity
-                            to work on and with some great brands, including the following:
-                        </h2>
+                        <h2><?=the_field('brand_text');?></h2>
                     </div>
 
                     <div class="col-md-10" data-aos="fade-down" data-aos-easing="linear">
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Air-NZ-logo.jpg">
+                    <?php if( have_rows('company_list_images') ): ?>
+                        <?php while ( have_rows('company_list_images') ) : the_row();?>
+                            <div class="brand-wrapper">
+                                <div class="brand-block">
+                                    <?php
+                                    $comp_img_id = get_sub_field('image');
+                                    echo wp_get_attachment_image(  $comp_img_id  , "Full" );  ?>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/British-Airways-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Bridgestone-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Firestone-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Frucor-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Goodlife-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Kelloggs-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Laminex-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Lion-Nathan-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Melanoma-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Qantas logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Mercedes-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Tip-Top-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/V-logo.jpg">
-                            </div>
-                        </div>
-
-                        <div class="brand-wrapper">
-                            <div class="brand-block">
-                                <img src="<?=THEME_IMAGE_URL?>/logo/Virgin-Australia.jpg">
-                            </div>
-                        </div>
-
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <section class="whoweare">
+        <section class="whoweare" >
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-md-11 col-lg-10" data-aos="fade-down">
                         <h2>Who we are</h2>
                     </div>
-                    <div class="col-md-11 col-lg-10" data-aos="fade-down">
+                    <div class="col-md-11 col-lg-10 col-sm-12" data-aos="fade-down">
                         <div class="row">
-                            <div class="col-md-6 profile" data-aos="fade-up-right" data-aos-easing="linear">
-                                <img src="http://via.placeholder.com/550x650">
-                            </div>
-                            <div class="col-md-6 profile" data-aos="fade-up-left" data-aos-easing="linear">
-                                <img src="http://via.placeholder.com/550x650">
-                            </div>
+                        <?php if( have_rows('who_we_are_tile') ): ?>
+                            <?php while ( have_rows('who_we_are_tile') ) : the_row();?>
+                                <div class="col-md-6 col-lg-6 col-sm-12 profile">
+                                    <?php
+                                    $comp_img_id = get_sub_field('who_we_are_image');
+                                    echo wp_get_attachment_image(  $comp_img_id  , "Full", array( "class" => "img-responsive" ) );  ?>
+                                    <div class="wware-info">
+                                        <h3><?=get_sub_field('staff_name');?></h3>
+                                        <p><?=get_sub_field('staff_position');?></p>
+                                        <label><a href="tel:<?=preg_replace('/\s+/', '', get_sub_field('contact_number'));?>"><?=get_sub_field('contact_number');?></a></label>
+                                        <label class="mail"><a href="mailto:<?=get_sub_field('staff_email');?>"><?=get_sub_field('staff_email');?></a></label>
+                                        <div class="profile-soc-media">
+                                            <a href="<?=get_sub_field('linkedin');?>" title="<?=get_sub_field('linkedin');?>">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/></svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        </div>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                         </div>
                     </div>
 
+
+                </div>
+            </div>
+        </section>
+
+        <section class="contactSection">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+
+                    <div class="col-sm-12 contact-Info"  data-aos="fade-up" data-aos-easing="linear">
+                        <h2 class="contact-hdr">Contact us</h2>
+                        <?php echo do_shortcode('[contact-form-7 id="67" title="Contact Form"]');?>
+                    </div>
 
                 </div>
             </div>
